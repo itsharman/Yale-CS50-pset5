@@ -1,0 +1,27 @@
+0.  pneumonoultramicroscopicsilicovolcanoconiosis is the longest word in the included "large" dictionary.
+It refers to a lung disease that is otherwise known as silicosis.
+1.  getrusage() returns resource usage measures for 'who', which is a parameter in 'int getrusage(int who, struct rusage *usage);'
+2.  There are 16 members in a variable of type 'struct rusage'.
+3.  rusage is way too large of a struct that it would be very time-inefficent and memory-costly to load into memory.
+Instead, it's much more efficient to pass the pointers 'before' and 'after' into 'calculate'.
+4.  The Main of 'speller.c' reads every single character in the file until it reaches its end. 
+It goes through every single character and when it comes across NULL, it realizes that the previous word has ended and that it has arrived at a new word. 
+At this point, it begins to read the next word in the file. 
+If the program encounters an apostrophe, it does not skip it. 
+If the program encounters a digit or a word with a size larger than the maximum size defined, the word is rejected/ignored. 
+Every word is accounted for in a counter, is spell-checked, and is printed. 
+'time_check' keeps track of the time it takes to complete the checking process. 
+The other time calculations are outside of the for-loop.
+5.  'fscanf' does not ignore words with digits in them, so we would have an imperfect spell-checker.
+6.  Because the parameters for check and load will always be consistent (unchanged), so it is a good stylistic choice to declare them as constants.
+Also, by doing this, we avoid recalculating the parameters every time, as that requires extra, unnecessary computation. 
+7.  I implemented a hash table of size 143093 where each value was at first initialized to NULL. 
+I chose 143093 specifically because that is the amount of lines in the large dictionary.
+This size provides the smallest runtime for me. 
+Each node in the array is eventually assigned a word from the dictionary.
+My hash function indexes new words into the hash table so that they have a place to be.
+8.  My code took over two seconds to run at first as I had my HASHSIZE set to 100.
+9.  By increasing my HASHSIZE I realized that I reduced the runtime.
+So, I eventually set it to 143093, which was the best runtime for me.
+10. I still can't get check50 to work for me.
+I've tried so many things but I still can't figure it out.
